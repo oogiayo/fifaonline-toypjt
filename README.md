@@ -42,6 +42,73 @@
 
 
 
+- mysqlclient
+
+  - 설치
+
+  ```bash
+  $ pip install mysqlclient
+  ```
+
+  - settings.py
+
+    > 원래는 sqlite3를 사용하는데 mysql로 바꿔준다. 지우지는 말고 custum_settings.py 만들어서 import해서 사용
+
+  ```python
+  DATABASES = {
+      'default': {
+          'ENGINE': 'django.db.backends.sqlite3',
+          'NAME': BASE_DIR / 'db.sqlite3',
+      }
+  }
+  
+  # 아래처럼 변경
+  
+  import custom_settings
+  
+  DATABASES = custom_settings.DATABASES
+  ```
+
+  
+
+  ```python
+  DATABASES = {
+      'default' : {
+          'ENGINE': 'django.db.backends.mysql',    
+          'NAME': 'fifaonline',                     
+          'USER': 'root',                          
+          'PASSWORD': '1234',                  
+          'HOST': 'localhost',                     
+          'PORT': '3306',                          
+      }
+  }
+  ```
+
+  - 내가 사용할 Mysql의 DB명은 fifaonline이므로 맞게 입력한다.
+
+
+
+
+
+
+
+- django-csvimport(XXXXXXXX)
+
+  ```bash
+  $ pip install django-csvimport
+  ```
+
+  ```python
+  INSTALLED_APPS = (
+  	...
+  	'csvimport.app.CSVImportConf',  # use AppConfig for django >=1.7 csvimport >=2.2
+  )
+  ```
+
+  
+
+
+
 ## 1.1 선수 고유 식별자(spid) 메타데이터 조회
 
 
