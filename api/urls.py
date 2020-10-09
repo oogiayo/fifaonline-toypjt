@@ -3,5 +3,6 @@ from . import views
 
 app_name = 'api'
 urlpatterns = [
-    path('<int:player_id>/', views.player, name='player'),
+    path('meta/<name>/', views.player, name='player'),
+    path('user/<nickname>/', views.user, name='user'),
 ]
